@@ -14,5 +14,18 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratchaneegorn/pcu-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ratchaneegorn/pcu-project/issues"
+  },
+  "homepage": "https://github.com/ratchaneegorn/pcu-project#readme",
+
+  "engines": {
+    "node": "12.19.0",
+    "npm": "6.14.8"
+  }
 }

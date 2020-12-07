@@ -191,4 +191,9 @@ app.post("/addevent", (req, res) => {
     
 })
 
-app.listen(5500);
+const PORT = process.env.PORT || 5500
+
+app.listen(PORT, ()=> {
+    console.log(`server running. ${PORT}`)
+})
+// app.listen(5500);
