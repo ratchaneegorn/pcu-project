@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Login with Google Account using Javascript</title>
+    <meta charset="utf-8">
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+        <meta name="google-signin-client_id" content="331764559247-vo0g3vm26qlkcu3dim0vljmp08990tgk.apps.googleusercontent.com">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // Render Google Sign-in button
+    function renderButton() {
+    gapi.signin2.render('gSignIn', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+    });
+}
+// Sign-in success callback
+function onSuccess(googleUser) {
+    // Get the Google profile data (basic)
+    // var profile = googleUser.getBasicProfile();
+    // Retrieve the Google account data
+    gapi.client.load('oauth2', 'v2', function () {
+        var request = gapi.client.oauth2.userinfo.get({
+            'userId': 'me'
+        });
+        request.execute(function (resp) {
+            // Display the user details
+            var profileHTML = '<a href="login-01.html" onclick="signOut();"<p style="margin-left:50px;">Sign out</a></p><br>';
+            profileHTML += '<b>Name: </b>'+resp.name+'</p><p><b>Email: </b>'+resp.email+'</p>';
+            document.getElementsByClassName("userContent")[0].innerHTML = profileHTML;
+            
+            document.getElementById("gSignIn").style.display = "none";
+            document.getElementsByClassName("userContent")[0].style.display = "block";
+        });
+    });
+}
+
+// Sign-in failure callback
+function onFailure(error) {
+    alert("mew");
+}
+
+// Sign out the user
+function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+        document.getElementsByClassName("userContent")[0].innerHTML = '';
+        document.getElementsByClassName("userContent")[0].style.display = "none";
+        document.getElementById("gSignIn").style.display = "block";
+    });
+    console.log("logout");
+    auth2.disconnect();
+}
+</script>
+<style>
+    .userContent p{font-size: 10px;}
+</style>
+</head>
+<div class="container">
+    <!-- Display Google sign-in button -->
+    <div id="gSignIn"></div>
+
+    <!-- Show the user profile details -->
+    <div class="userContent" style="display: none;"></div>
+</div>
+</html>

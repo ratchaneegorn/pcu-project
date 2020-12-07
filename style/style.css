@@ -1,0 +1,377 @@
+
+body {
+    font-family: 'Prompt', sans-serif;
+    background-color: #ffdd94;
+    background-image: linear-gradient(to bottom right, #fad874,#ffa0bed5);
+    font-size: 12px;
+    min-height: 100vh;
+    margin: 0px 5%;
+    display: flex;
+    flex-direction: column;
+}
+#container {
+    text-align: center;
+    font-family: 'Prompt', sans-serif;
+    margin: 50px 0px; 
+}
+
+.text{
+    font-family: 'Mitr', sans-serif;
+    color: #4e692e;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+}
+
+.headText {
+    font-size: 25px;
+    text-align: center;
+    border-bottom:2px solid rgba(97, 15, 76, 0.644);
+    margin: 10px;
+}
+#lanChange {
+    text-align: right;
+    font-size: 16px;
+}
+.user-action {
+    text-align: right;
+}
+#logout, #login {
+    width: 100px;
+    font-size: 10px;
+    margin-right: initial;
+    text-align: center;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+    border: 2px solid rgba(255, 232, 105, 0.795);
+    background: #ffaf1be0;
+    box-shadow: 2px 2px 4px rgba(0,0,200,0.4);
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-block;
+    cursor: pointer;
+}
+.card-container {
+    background-color: #99ecf5;
+    border-radius: 30px;
+    border: 0.5px solid rgb(121, 132, 230);
+    padding-left: 20px;
+    align-items: center;
+    display: flex; 
+    flex-direction: row;
+    height: 300px;
+    width:600px;
+    margin: auto;
+}
+.card-book, .card-check {
+    box-shadow: 3px 3px 10px rgba(30, 30, 245, 0.3);
+    border-radius: 45px;
+    border: 30px solid white;
+    padding: 30px;
+    background-color: white;
+    margin: 40px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    text-decoration: none;
+    cursor: pointer;
+    height: 70px;
+    width: 80px;
+}
+.card-book img, .card-check img {
+    width: 100px;
+    border-radius: 20px;
+}
+.card-book div:first-child, .card-check div:first-child {
+    height: 100px;
+}
+.card-book div:last-child, .card-check div:last-child {
+    height: 70px;
+}
+
+/*logout botton*/
+#logout {
+    margin-right: initial;
+    text-align: center;
+    font-family: "helvetica neue", Arial, Helvetica, sans-serif;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px solid rgba(250, 238, 76, 0.6);
+    background: #ffaf1be0;
+    box-shadow: 2px 2px 4px rgba(0,0,200,0.4);
+    border-radius: 20px;
+    padding: 5px 15px;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+}
+#back, #cancel, #except, #next {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 1px;
+    border: 2px solid rgba(50, 128, 245, 0.527);
+    background: rgb(82, 13, 151);
+    box-shadow: 4px 4px 4px rgba(122, 122, 150, 0.541);
+    border-radius: 20px;
+    padding: 10px 30px;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+.user-action {
+    display: inline;
+    float: right;
+}
+.back-button {
+    padding: 10px;
+}
+#cancel {
+    width: fit-content;
+    border: 2px solid rgba(240, 52, 139, 0.61);
+    background: rgb(247, 24, 24);
+}
+.card-app-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border-radius: 30px;
+   
+    /* box-shadow: 0px 2px 4px 0px #f9fadc ;
+    background-image: linear-gradient(110deg, #fcca04 60%, #fff9da 60%); */
+    margin: 0px 30px 30px 30px;
+}
+.card-button{
+    text-align: right;;
+}
+.card-show-detail {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    flex-direction: column;
+    display: flex;
+}
+.cancel-button{
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+}
+.detail {
+    font-size: 20px;
+    width: 900px;
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    border-radius: 40px;
+    box-shadow: 4px 4px 4px #012c0167;
+    background-color:#73ccd5;
+    margin: auto;
+    
+}
+.link-map {
+    font-size: 16px;
+    flex-direction: row;
+}
+#link-btn {
+    border-radius: 10px;
+    display: inline-block;
+    outline: none;
+    text-decoration: none;
+    cursor: pointer; 
+}
+.detail div {
+    margin: 20px;
+}
+.card-show-detail label{
+    background-color: white ;
+    /* box-shadow: 4px 4px 4px rgba(122, 122, 150, 0.541); */
+    border-radius: 20px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin: 5px;
+    padding: 10px 60px 10px 60px;
+}
+#container-inform {
+    font-family: 'Prompt', sans-serif;
+    border-radius: 20px;
+    margin: 0px 80px 80px 80px;
+    padding: 20px;
+}
+.main-inform {
+    width: auto;
+    margin: 0px 0px 20px 0px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #a1ecd7 ;
+    border-radius: 50px; 
+}
+.check-use {
+    display: flex;
+    flex-direction: row;
+    padding:  0px 0px 10px 0px;
+   
+}
+.information {
+    padding: 0px 30px 30px 100px;
+}
+.information label {
+    padding:  0px 0px 10px 0px;
+}
+#id, #fname, #lname {
+    width: 200px;
+}
+.input-name, .id-number{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+.input-name div {
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+input {
+    border-radius: 20px;
+    border: 5px solid white;
+}
+.emergency {
+    /* display: flex; */
+    flex-direction: row;
+    padding: 10px 0px 10px 0px ;
+   
+}
+textarea {
+    width: 400px;
+    height: 100px;
+    resize: none;
+    border-radius: 25px;
+    padding: 10px ;
+}
+.certificate {
+    padding: 10px 0px 10px 0px ;
+}
+.verify, .verify div {
+    padding: 0px 0px 10px 0px ;
+}
+.except {
+    text-align: center;
+}
+#except-button {
+        font-size: 18px;
+        border: 2px solid rgba(250, 238, 76, 0.6);
+        background: #1bff1be0;
+        box-shadow: 2px 2px 4px rgba(0,0,200,0.4);
+        border-radius: 20px;
+        padding: 5px 25px;
+        text-decoration: none;
+        cursor: pointer;
+}
+#container-calendar {
+    display: flex;
+    flex-direction: column;
+}
+.this-calendar {
+    width: auto;
+    height: 400px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    border: 2px solid #fcca0486;
+    padding:0px 20px 10px 20px;
+}
+.next-button {
+    text-align: right;
+    padding: 10px;
+}
+.hover-button:hover {
+    background-color: rgb(35, 34, 107) !important;
+    transition: 0.5s;
+}
+#next {
+    font-size: 18px;
+    border: 2px solid rgb(244, 255, 93);
+    background: #1bff1be0;
+    box-shadow: 2px 2px 4px rgba(0,0,200,0.4);
+    border-radius: 20px;
+    cursor: pointer;
+} 
+#container-appoint {
+    display: flex;
+    flex-direction: column;
+}
+#map {
+    height: 500px;
+    width: 100%;
+}
+#container-map {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+.location {
+    display: flex;
+    flex-direction: column;
+}
+.location select {
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 5px;
+    margin-right: 60px;
+    width: 250px;
+}
+#back-bt {
+    margin-right: auto;
+    width: 80px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid rgb(199, 199, 199);
+    background: rgb(82, 13, 151);
+    box-shadow: 5px black;
+    margin: 10px;
+    padding: 5px;   
+}
+#place-btn {
+    background-color: #3f519e;
+    border: 1px solid rgb(199, 199, 199);
+    margin: 10px;
+    padding: 5px;   
+    margin-right: auto;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    outline: none;
+    text-decoration-line:none;
+    cursor: pointer;
+}
+#back-btn {
+    background-color: #3f519e;
+    border: 1px solid rgb(199, 199, 199);
+    margin: 10px;
+    padding: 10px 30px 10px 30px;   
+    margin-right: auto;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 20px;
+    outline: none;
+    text-decoration-line:none;
+    cursor: pointer;
+}
+#place-btn {
+    margin: 10px;
+    padding: 10px 30px 10px 30px;   
+}

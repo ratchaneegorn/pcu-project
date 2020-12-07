@@ -1,0 +1,9 @@
+body {
+    background-image: url(bg.png);
+    background-size: 100%;
+    width: 850px;
+    margin: 0 auto;
+    padding: 0;
+    border: 10px solid #8675a9;
+    
+}

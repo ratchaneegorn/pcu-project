@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>ระบบนัดหมายหน่วยปฐมภูมินักศึกษา123</title>
+    <link rel="stylesheet" href="list.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleresponsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&family=Prompt&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body style=" background-color:#73ccd5;">
+
+    <div class="container" style="background-color: white;">
+        <div style="margin-left: 85%;"><a href="login.html"><button id="login">Sign Out</button></a></div>
+        <div class="container-header">
+            <div class="logo-center">
+                <div class="logo">
+                    <img src="image/calendar.jpg">
+                </div>
+            </div>
+            <div class="head-kku">
+                <div>
+                    <h2>ระบบนัดหมายหน่วยปฐมภูมินักศึกษา 123 มหาวิทยาลัยขอนแก่น</h2>
+                    <h2 class="txt-doctor">ตารางนัดผู้ป่วย</h2>
+                </div>
+            </div>
+        </div>
+        <div class="container2">
+            <div class="button">
+                <a type="button" class="btn btn-primary" href="calendar.html">ดูปฏิทิน</a>
+                <button type="button" class="btn btn-success">เพิ่มข้อมูล</button>
+                <button type="button" class="btn btn-danger">ยกเลิกนัด</button>
+
+            </div>
+            </div>
+            
+        <div class="container3">
+            <div class="info">
+                <table class="table">
+                    <tr class="success">
+                        <th style="text-align: center;">ลำดับ</th>
+                        <th style="text-align: center;">วันที่</th>
+                        <th style="text-align: center;">เวลา</th>
+                        <th style="text-align: center;">ชื่อ</th>
+                        <th style="text-align: center;">สกุล</th>
+                        <th style="text-align: center;">อาการ</th>
+                        <th style="text-align: center;">สถานที่นัดหมาย</th>
+                        <th style="text-align: center;">ขอใบรับรองแพทย์</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        fetch("http://localhost:5500/getAppointments")
+        .then(res => res.json())
+        .then(appointments => {
+            appointments.forEach((appointment, index) => {
+                console.log(appointment);
+                const tr = `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${appointment.start.dateTime.split("T")[0]}</td>
+                        <td>${appointment.start.dateTime.split("T")[1].split("+")[0]}</td>
+                        <td>${appointment.description.split("\n")[2].split(":")[1]}</td>
+                        <td>${appointment.description.split("\n")[3].split(":")[1]}</td>
+                        <td>${appointment.description.split("\n")[4].split(":")[1]}</td>
+                        <td>${appointment.location}</td>
+                        <td>${appointment.description.split("\n")[5].split(":")[1]}</td>
+                    </tr>
+                `
+                document.querySelector("table").innerHTML += tr
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตารางนัดหมาย-ระบบนัดหมายหน่วยปฐมภูมินักศึกษา123 มหาวิทยาลัยขอนแก่น</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleresponsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr&family=Prompt&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <p id="lanChange">TH|EN</p>
+    <div class="user-action">
+        <!-- <button id="login">Sign in</button> -->
+        <button id="logout">Sign Out</button>
+    </div>
+    <div id="container-appoint">
+        <div class="headText">ระบบนัดหมายหน่วยปฐมภูมินักศึกษา123 มหาวิทยาลัยขอนแก่น</div>
+        <div class="text">ตารางนัดหมาย</div>
+        <div class="card-app-container">
+            <div class="card-show-detail">
+                <div class="detail">
+                    <div>
+                        <p></p>
+                        <label id="name"></label>
+                        <div><a id="place-btn" style="color: white;" href="map.html">แผนที่</a></div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+            <div class="cancel-button">
+                <button id="cancel" style="color: white;" onclick="sendEmail()">ยกเลิก</button>
+            </div>
+        </div>
+        <div class="back-button">
+            <a id="back" class="hover-button" style="color: white; float: right;" href="menu.html">กลับ</a>
+        </div>
+        <script>
+            function sendEmail() {
+                alert("กรุณารอรับ Email ตอบกลับเพื่อยืนยันการยกเลิกนัด");
+            }
+        </script>
+
+        <script>
+            fetch("http://localhost:5500/showAppointments")
+                .then(res => res.json())
+                .then(appointments => {
+                    appointments.forEach((showdetail, index) => {
+                        const label =
+                            `       
+                            ชื่อ: <label>${showdetail.description.split("\n")[2].split(":")[1]}</label>
+                            <label>${showdetail.description.split("\n")[3].split(":")[1]}</label><br/>
+                            วันที่: <label>${showdetail.start.dateTime.split("T")[0]}</label><br/>
+                            เวลา: <label>${showdetail.start.dateTime.split("T")[1].split("+")[0]}-${showdetail.end.dateTime.split("T")[1].split("+")[0]}</label><br/>
+                            สถานที่: <label>${showdetail.location}</label><br/>`
+                        document.querySelector("label").innerHTML += label
+                    })
+                })
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>

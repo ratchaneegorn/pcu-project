@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบนัดหมายหน่วยปฐมภูมินักศึกษา123 มหาวิทยาลัยขอนแก่น</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/styleresponsive.css">
+    <link rel="stylesheet" href="style/login.css">
+    <script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+    <meta name="google-signin-client_id" content="331764559247-ftcl715nc9aer5fipkjg1k638539pbg3.apps.googleusercontent.com">
+
+    <script>
+        // Render Google Sign-in button
+        function renderButton() {
+            gapi.signin2.render('gSignIn', {
+                'scope': 'profile email',
+                'width': 230,
+                'height': 50,
+                'longtitle': true,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure,
+            });
+        }
+        // Sign-in success callback
+        function onSuccess(googleUser) {
+            // Get the Google profile data (basic)
+            var profile = googleUser.getBasicProfile();
+            // Retrieve the Google account data
+            gapi.client.load('oauth2', 'v2', function () {
+                var request = gapi.client.oauth2.userinfo.get({
+                    'userId': 'me'
+                });
+                console.log(gapi.auth2.getAuthInstance().currentUser)
+                request.execute(function (resp) {
+                    // console.log(resp);
+                    // window.location.href = "/"
+                    // Display the user details
+                    // var profileHTML = `Name: ${resp.name}` + ` Email: ${resp.email}`;
+                    // if (profileHTML !== null) {
+                    //     var redirect = confirm(profileHTML);
+
+                    //     if (redirect) {
+                    //         window.location.href = 'menu.html';
+                    //     }
+                    //}
+                });
+            });
+        }
+        // Sign-in failure callback
+        function onFailure(error) {
+            alert("error! please log in again.");
+        }
+        
+    </script>
+</head>
+<div class="container" style="background-color: yellow;">
+    <div class="container-header">
+        <div class="logo"><img style="border-radius: 20px; width: 180px; height: 180px;" src="image/logo.jpg" class="img-logo"></div>
+        <div class="head-kku">
+            <h2 style="text-align: center; font-size: 25px;">ระบบนัดหมายหน่วยปฐมภูมินักศึกษา 123</h2>
+        </div>
+        <!-- Display Google sign-in button -->
+        <div class="button-login">
+            <div id="gSignIn"></div>
+        </div>
+        
+    </div>
+</div>
+</html>
