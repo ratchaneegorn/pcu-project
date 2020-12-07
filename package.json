@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "googleapis": "^66.0.0",
+    "heroku": "^7.47.4",
     "mime": "^1.6.0"
   },
   "devDependencies": {},
@@ -22,10 +23,5 @@
   "bugs": {
     "url": "https://github.com/ratchaneegorn/pcu-project/issues"
   },
-  "homepage": "https://github.com/ratchaneegorn/pcu-project#readme",
-
-  "engines": {
-    "node": "12.19.0",
-    "npm": "6.14.8"
-  }
+  "homepage": "https://github.com/ratchaneegorn/pcu-project#readme"
 }
